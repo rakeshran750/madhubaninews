@@ -182,7 +182,7 @@
     // Populate the swiper with news items
 // Wait for DOM to load
   document.addEventListener('DOMContentLoaded', () => {
-    fetch('http://localhost:3000/api/today/data')
+    fetch('http://192.168.1.5:3000/api/today/data')
       .then(response => response.json())
       .then(data => {
         // Assuming data is an array of news items
