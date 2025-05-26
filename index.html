@@ -1,1005 +1,228 @@
+<!DOCTYPE html>
+<html lang="en">
 
-    <!DOCTYPE html>
-    <html lang="en">
-    <head>
-      <meta charset="UTF-8">
-      <meta name="viewport" content="width=device-width, initial-scale=1.0">
-      <title>News Slider</title>
-      <!-- Tailwind CSS CDN -->
-      <script src="https://cdn.tailwindcss.com"></script>
-    
-      <!-- Swiper JS CDN -->
-      <link rel="stylesheet" href="https://unpkg.com/swiper/swiper-bundle.min.css">
-      <script src="https://unpkg.com/swiper/swiper-bundle.min.js"></script>
-    
-      <style>
-        /* Ensure full height of swiper */
-        html, body {
-          height: 100%;
-          margin: 0;
-          overflow: hidden; /* Prevents bottom scroll */
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>News Slider</title>
+
+  <!-- Tailwind CSS CDN -->
+  <script src="https://cdn.tailwindcss.com"></script>
+
+  <!-- Swiper JS CDN -->
+  <link rel="stylesheet" href="https://unpkg.com/swiper/swiper-bundle.min.css" />
+  <script src="https://unpkg.com/swiper/swiper-bundle.min.js"></script>
+
+  <script>
+    const newsData = [
+      {
+        "_id": {
+          "$oid": "6834ab4d461417127973aef2"
+        },
+        "title": "बिजली का कनेक्शन समय पर मिले तो सुधरेगी खेती और बढ़ेगा व्यवसाय",
+        "description": "शहर के नए परिसीमन में किसानों और व्यवसायियों को बिजली कनेक्शन प्राप्त करने में काफी परेशानियों का सामना करना पड़ रहा है। जितवारपुर गांव के पास बोरिंग कनेक्शन के लिए एक वर्ष से प्रयासरत किसान अब खेती...",
+        "image": "https://www.livehindustan.com/lh-img/smart/img/2025/05/26/256x144/MADHU_1054944_1748262429085.JPG",
+        "__v": 0,
+        "createdAt": {
+          "$date": "2025-05-26T17:56:29.622Z"
+        },
+        "updatedAt": {
+          "$date": "2025-05-26T17:56:29.622Z"
         }
-    
-        .swiper-container {
-          height: 90%; /* Full screen height */
-          overflow: hidden; /* Prevents showing scrollbars */
+      },
+      {
+        "_id": {
+          "$oid": "6834ab4d461417127973aef3"
+        },
+        "title": "सम्मान समारोह में दर्जनों छात्र सम्मानित",
+        "description": "मधवापुर के साहरघाट में शिक्षाविदों ने रविवार को 'विद्यार्थी प्रतिभा सम्मान समारोह 2025' का आयोजन किया। इस अवसर पर मैट्रिक और इंटरमीडिएट में अव्वल छात्रों को सम्मानित किया गया। मुख्य अतिथि रवींद्र...",
+        "image": "https://www.livehindustan.com/lh-img/uploadimage/library/2020/10/29/16_9/16_9_4/default-image256x144.jpg",
+        "__v": 0,
+        "createdAt": {
+          "$date": "2025-05-26T17:56:29.627Z"
+        },
+        "updatedAt": {
+          "$date": "2025-05-26T17:56:29.627Z"
         }
-    
-        .swiper-slide {
-          height: 90%; /* Ensure each slide takes full height */
-          display: flex;
-          justify-content: center;
-          align-items: center;
+      },
+      {
+        "_id": {
+          "$oid": "6834ab4d461417127973aef4"
+        },
+        "title": "800 मीटर दौड़ में रौशन व आयुषी अव्वल",
+        "description": "झंझारपुर के कैथिनिया स्कूल में बिहार राज्य खेल प्रतिमा खोज 'मशाल कार्यक्रम 2024-25' के तहत संकुल स्तरीय प्रतियोगिता आयोजित की गई। विभिन्न खेलों में छात्र-छात्राओं ने भाग लिया। विजेताओं को मेडल और...",
+        "image": "https://www.livehindustan.com/lh-img/uploadimage/library/2020/10/29/16_9/16_9_4/default-image256x144.jpg",
+        "__v": 0,
+        "createdAt": {
+          "$date": "2025-05-26T17:56:29.627Z"
+        },
+        "updatedAt": {
+          "$date": "2025-05-26T17:56:29.627Z"
         }
-    
-        /* Make the image cover the entire card and scale it properly */
-        .swiper-slide img {
-          object-fit: cover;
-          width: 100%;
-        }
-      </style>
-    </head>
-    <body class="h-screen flex flex-col">
-    <header class="h-16 bg-blue-600 text-white flex items-center justify-center">
-          <nav class="bg-white dark:bg-gray-900 fixed w-full z-20 top-0 start-0 border-b border-gray-200 dark:border-gray-600">
-            <div class="max-w-screen-xl flex flex-wrap items-center justify-center mx-auto p-4">
-            <a href="https://flowbite.com/" class="flex items-center space-x-3 rtl:space-x-reverse">
-                <span class="self-center text-2xl font-semibold whitespace-nowrap dark:text-white">Madhubnai News</span>
-            </a>
-            </div>
-        </nav>
-    </header>
-    
-      <!-- Swiper Slider Container -->
-      <main class="h-full p-4">
-      
-      <div class="swiper-container mx-auto my-8">
-        <div class="swiper-wrapper flex h-[100%] items-center">
-        
-          <div class="swiper-slide w-full h-full px-4 py-2 box-border flex items-center justify-center">
-                <div class="w-full max-w-md flex flex-col rounded-2xl overflow-hidden shadow-lg bg-white border border-gray-200 flex-1">
-                    <!-- Image -->
-                        <img
-                        class="w-auto h-85 sm:h-60 object-cover"
-                        src=https://www.livehindustan.com/lh-img/smart/img/2025/05/26/256x144/MADHU_1054944_1748262429085.JPG
-                        alt="News Image"
-                        />
-                    <!-- Scrollable content -->
-                    <div class="p-4 flex-1 overflow-y-auto">
-                        <h2 class="text-3xl sm:text-3xl mt-4 md:text-2xl font-semibold text-gray-800 mb-2 leading-snug">
-                        बिजली का कनेक्शन समय पर मिले तो सुधरेगी खेती और बढ़ेगा व्यवसाय    
-                        </h2>
-                        <p class="text-gray-600 mt-3 text-xl sm:text-base">
-                        शहर के नए परिसीमन में किसानों और व्यवसायियों को बिजली कनेक्शन प्राप्त करने में काफी परेशानियों का सामना करना पड़ रहा है। जितवारपुर गांव के पास बोरिंग कनेक्शन के लिए एक वर्ष से प्रयासरत किसान अब खेती...    
-                        </p>
-                        <span class="bg-gray-100 text-gray-800 text-xs font-medium me-2 px-2.5 py-0.5 rounded-full dark:bg-gray-700 dark:text-gray-300">और पढ़े..</span>
-                        <p class="text-xs text-gray-400 mt-2 mb-4">undefined</p>
-                    </div>
+      }
+    ];
+  </script>
 
-                </div>
-            </div>
-        
-          <div class="swiper-slide w-full h-full px-4 py-2 box-border flex items-center justify-center">
-                <div class="w-full max-w-md flex flex-col rounded-2xl overflow-hidden shadow-lg bg-white border border-gray-200 flex-1">
-                    <!-- Image -->
-                        <img
-                        class="w-auto h-85 sm:h-60 object-cover"
-                        src=https://www.livehindustan.com/lh-img/uploadimage/library/2020/10/29/16_9/16_9_4/default-image256x144.jpg
-                        alt="News Image"
-                        />
-                    <!-- Scrollable content -->
-                    <div class="p-4 flex-1 overflow-y-auto">
-                        <h2 class="text-3xl sm:text-3xl mt-4 md:text-2xl font-semibold text-gray-800 mb-2 leading-snug">
-                        सम्मान समारोह में दर्जनों छात्र सम्मानित    
-                        </h2>
-                        <p class="text-gray-600 mt-3 text-xl sm:text-base">
-                        मधवापुर के साहरघाट में शिक्षाविदों ने रविवार को 'विद्यार्थी प्रतिभा सम्मान समारोह 2025' का आयोजन किया। इस अवसर पर मैट्रिक और इंटरमीडिएट में अव्वल छात्रों को सम्मानित किया गया। मुख्य अतिथि रवींद्र...    
-                        </p>
-                        <span class="bg-gray-100 text-gray-800 text-xs font-medium me-2 px-2.5 py-0.5 rounded-full dark:bg-gray-700 dark:text-gray-300">और पढ़े..</span>
-                        <p class="text-xs text-gray-400 mt-2 mb-4">undefined</p>
-                    </div>
+  <style>
+    /* Ensure full height of swiper */
+    html,
+    body {
+      height: 100%;
+      margin: 0;
+      overflow: hidden;
+      /* Prevents bottom scroll */
+    }
 
-                </div>
-            </div>
-        
-          <div class="swiper-slide w-full h-full px-4 py-2 box-border flex items-center justify-center">
-                <div class="w-full max-w-md flex flex-col rounded-2xl overflow-hidden shadow-lg bg-white border border-gray-200 flex-1">
-                    <!-- Image -->
-                        <img
-                        class="w-auto h-85 sm:h-60 object-cover"
-                        src=https://www.livehindustan.com/lh-img/uploadimage/library/2020/10/29/16_9/16_9_4/default-image256x144.jpg
-                        alt="News Image"
-                        />
-                    <!-- Scrollable content -->
-                    <div class="p-4 flex-1 overflow-y-auto">
-                        <h2 class="text-3xl sm:text-3xl mt-4 md:text-2xl font-semibold text-gray-800 mb-2 leading-snug">
-                        800 मीटर दौड़ में रौशन व आयुषी अव्वल    
-                        </h2>
-                        <p class="text-gray-600 mt-3 text-xl sm:text-base">
-                        झंझारपुर के कैथिनिया स्कूल में बिहार राज्य खेल प्रतिमा खोज 'मशाल कार्यक्रम 2024-25' के तहत संकुल स्तरीय प्रतियोगिता आयोजित की गई। विभिन्न खेलों में छात्र-छात्राओं ने भाग लिया। विजेताओं को मेडल और...    
-                        </p>
-                        <span class="bg-gray-100 text-gray-800 text-xs font-medium me-2 px-2.5 py-0.5 rounded-full dark:bg-gray-700 dark:text-gray-300">और पढ़े..</span>
-                        <p class="text-xs text-gray-400 mt-2 mb-4">undefined</p>
-                    </div>
+    .swiper-container {
+      height: 90%;
+      /* Full screen height */
+      overflow: hidden;
+      /* Prevents showing scrollbars */
+    }
 
-                </div>
-            </div>
-        
-          <div class="swiper-slide w-full h-full px-4 py-2 box-border flex items-center justify-center">
-                <div class="w-full max-w-md flex flex-col rounded-2xl overflow-hidden shadow-lg bg-white border border-gray-200 flex-1">
-                    <!-- Image -->
-                        <img
-                        class="w-auto h-85 sm:h-60 object-cover"
-                        src=https://www.livehindustan.com/lh-img/uploadimage/library/2020/10/29/16_9/16_9_4/default-image256x144.jpg
-                        alt="News Image"
-                        />
-                    <!-- Scrollable content -->
-                    <div class="p-4 flex-1 overflow-y-auto">
-                        <h2 class="text-3xl sm:text-3xl mt-4 md:text-2xl font-semibold text-gray-800 mb-2 leading-snug">
-                        वरीय उपाध्यक्ष के निधन पर शोकसभा    
-                        </h2>
-                        <p class="text-gray-600 mt-3 text-xl sm:text-base">
-                        मधेपुर में बिहार राज्य प्राथमिक शिक्षक संघ के वरीय उपाध्यक्ष ललन कुमार ठाकुर के निधन पर शोकसभा आयोजित की गई। शोकसभा में उनके व्यक्तित्व और शिक्षकीय सेवाओं की प्रशंसा की गई। संघ के अध्यक्ष राम कुमार...    
-                        </p>
-                        <span class="bg-gray-100 text-gray-800 text-xs font-medium me-2 px-2.5 py-0.5 rounded-full dark:bg-gray-700 dark:text-gray-300">और पढ़े..</span>
-                        <p class="text-xs text-gray-400 mt-2 mb-4">undefined</p>
-                    </div>
+    .swiper-slide {
+      height: 90%;
+      /* Ensure each slide takes full height */
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
 
-                </div>
-            </div>
-        
-          <div class="swiper-slide w-full h-full px-4 py-2 box-border flex items-center justify-center">
-                <div class="w-full max-w-md flex flex-col rounded-2xl overflow-hidden shadow-lg bg-white border border-gray-200 flex-1">
-                    <!-- Image -->
-                        <img
-                        class="w-auto h-85 sm:h-60 object-cover"
-                        src=https://www.livehindustan.com/lh-img/uploadimage/library/2020/10/29/16_9/16_9_4/default-image256x144.jpg
-                        alt="News Image"
-                        />
-                    <!-- Scrollable content -->
-                    <div class="p-4 flex-1 overflow-y-auto">
-                        <h2 class="text-3xl sm:text-3xl mt-4 md:text-2xl font-semibold text-gray-800 mb-2 leading-snug">
-                        78 प्रशिक्षुओं ने कुटीर उद्योग व व्यापार संचालन के सीखे गुर    
-                        </h2>
-                        <p class="text-gray-600 mt-3 text-xl sm:text-base">
-                        बिहार लघु उद्यमी योजना के तहत मधुबनी में 78 प्रशिक्षुओं को कुटीर उद्योग और व्यापार संचालन का प्रशिक्षण दिया गया। महाप्रबंधक रमेश कुमार शर्मा ने प्रमाण पत्र वितरित किए। इस तीन दिवसीय कार्यक्रम में 39...    
-                        </p>
-                        <span class="bg-gray-100 text-gray-800 text-xs font-medium me-2 px-2.5 py-0.5 rounded-full dark:bg-gray-700 dark:text-gray-300">और पढ़े..</span>
-                        <p class="text-xs text-gray-400 mt-2 mb-4">undefined</p>
-                    </div>
+    /* Make the image cover the entire card and scale it properly */
+    .swiper-slide img {
+      object-fit: cover;
+      width: 100%;
+    }
+  </style>
+</head>
 
-                </div>
-            </div>
-        
-          <div class="swiper-slide w-full h-full px-4 py-2 box-border flex items-center justify-center">
-                <div class="w-full max-w-md flex flex-col rounded-2xl overflow-hidden shadow-lg bg-white border border-gray-200 flex-1">
-                    <!-- Image -->
-                        <img
-                        class="w-auto h-85 sm:h-60 object-cover"
-                        src=https://www.livehindustan.com/lh-img/smart/img/2025/05/25/256x144/25_MAY_MADHU_10113649_1748200304410.JPG
-                        alt="News Image"
-                        />
-                    <!-- Scrollable content -->
-                    <div class="p-4 flex-1 overflow-y-auto">
-                        <h2 class="text-3xl sm:text-3xl mt-4 md:text-2xl font-semibold text-gray-800 mb-2 leading-snug">
-                        15 जून तक जिले में 320 खेल मैदान बनकर हो जाएंगे तैयार    
-                        </h2>
-                        <p class="text-gray-600 mt-3 text-xl sm:text-base">
-                        मधुबनी में 320 खेल मैदान का निर्माण मनरेगा मद से किया जा रहा है। डीडीसी दीपेश कुमार ने बताया कि 15 जून तक सभी खेल मैदान तैयार करने का लक्ष्य है। अब तक 214 मैदान का कार्य पूरा हो चुका है। हर मैदान में...    
-                        </p>
-                        <span class="bg-gray-100 text-gray-800 text-xs font-medium me-2 px-2.5 py-0.5 rounded-full dark:bg-gray-700 dark:text-gray-300">और पढ़े..</span>
-                        <p class="text-xs text-gray-400 mt-2 mb-4">undefined</p>
-                    </div>
-
-                </div>
-            </div>
-        
-          <div class="swiper-slide w-full h-full px-4 py-2 box-border flex items-center justify-center">
-                <div class="w-full max-w-md flex flex-col rounded-2xl overflow-hidden shadow-lg bg-white border border-gray-200 flex-1">
-                    <!-- Image -->
-                        <img
-                        class="w-auto h-85 sm:h-60 object-cover"
-                        src=https://www.livehindustan.com/lh-img/uploadimage/library/2020/10/29/16_9/16_9_4/default-image256x144.jpg
-                        alt="News Image"
-                        />
-                    <!-- Scrollable content -->
-                    <div class="p-4 flex-1 overflow-y-auto">
-                        <h2 class="text-3xl sm:text-3xl mt-4 md:text-2xl font-semibold text-gray-800 mb-2 leading-snug">
-                        अपहृत युवक बरामद, दो बदमाश धराये    
-                        </h2>
-                        <p class="text-gray-600 mt-3 text-xl sm:text-base">
-                        नरहिया थाना पुलिस ने शनिवार को अपहरण हुए युवक नरेश कुमार भारती को तीन घंटे के अंदर बरामद कर लिया। दो कथित अपहर्ताओं मुकेश कुमार यादव और राजू कुमार को भी गिरफ्तार किया गया। पुलिस ने घटनास्थल से जिंदा...    
-                        </p>
-                        <span class="bg-gray-100 text-gray-800 text-xs font-medium me-2 px-2.5 py-0.5 rounded-full dark:bg-gray-700 dark:text-gray-300">और पढ़े..</span>
-                        <p class="text-xs text-gray-400 mt-2 mb-4">undefined</p>
-                    </div>
-
-                </div>
-            </div>
-        
-          <div class="swiper-slide w-full h-full px-4 py-2 box-border flex items-center justify-center">
-                <div class="w-full max-w-md flex flex-col rounded-2xl overflow-hidden shadow-lg bg-white border border-gray-200 flex-1">
-                    <!-- Image -->
-                        <img
-                        class="w-auto h-85 sm:h-60 object-cover"
-                        src=https://www.livehindustan.com/lh-img/uploadimage/library/2020/10/29/16_9/16_9_4/default-image256x144.jpg
-                        alt="News Image"
-                        />
-                    <!-- Scrollable content -->
-                    <div class="p-4 flex-1 overflow-y-auto">
-                        <h2 class="text-3xl sm:text-3xl mt-4 md:text-2xl font-semibold text-gray-800 mb-2 leading-snug">
-                        धेपुरा नहर किनारे अज्ञात लाश मिली    
-                        </h2>
-                        <p class="text-gray-600 mt-3 text-xl sm:text-base">
-                        झंझारपुर के एनएच 27 धेपुरा कट के पास नहर किनारे एक अज्ञात शव मिला। पुलिस ने शव को पोस्टमार्टम के लिए भेजा। शव की पहचान नहीं हो पाई है। स्थानीय लोगों के अनुसार, यह विक्षिप्त व्यक्ति कुछ समय से यहां...    
-                        </p>
-                        <span class="bg-gray-100 text-gray-800 text-xs font-medium me-2 px-2.5 py-0.5 rounded-full dark:bg-gray-700 dark:text-gray-300">और पढ़े..</span>
-                        <p class="text-xs text-gray-400 mt-2 mb-4">undefined</p>
-                    </div>
-
-                </div>
-            </div>
-        
-          <div class="swiper-slide w-full h-full px-4 py-2 box-border flex items-center justify-center">
-                <div class="w-full max-w-md flex flex-col rounded-2xl overflow-hidden shadow-lg bg-white border border-gray-200 flex-1">
-                    <!-- Image -->
-                        <img
-                        class="w-auto h-85 sm:h-60 object-cover"
-                        src=https://www.livehindustan.com/lh-img/uploadimage/library/2020/10/29/16_9/16_9_4/default-image256x144.jpg
-                        alt="News Image"
-                        />
-                    <!-- Scrollable content -->
-                    <div class="p-4 flex-1 overflow-y-auto">
-                        <h2 class="text-3xl sm:text-3xl mt-4 md:text-2xl font-semibold text-gray-800 mb-2 leading-snug">
-                        संदिग्ध हालत में मिला महिला का शव    
-                        </h2>
-                        <p class="text-gray-600 mt-3 text-xl sm:text-base">
-                        फुलपरास के कोनार गांव में रविवार को 22 वर्षीय महिला जमुनी खातून का शव संदिग्ध अवस्था में मिला। पुलिस ने शव को कब्जे में लेकर पंचनामा बनाया और पोस्टमार्टम के लिए भेजा। महिला के गले पर निशान हैं, जो...    
-                        </p>
-                        <span class="bg-gray-100 text-gray-800 text-xs font-medium me-2 px-2.5 py-0.5 rounded-full dark:bg-gray-700 dark:text-gray-300">और पढ़े..</span>
-                        <p class="text-xs text-gray-400 mt-2 mb-4">undefined</p>
-                    </div>
-
-                </div>
-            </div>
-        
-          <div class="swiper-slide w-full h-full px-4 py-2 box-border flex items-center justify-center">
-                <div class="w-full max-w-md flex flex-col rounded-2xl overflow-hidden shadow-lg bg-white border border-gray-200 flex-1">
-                    <!-- Image -->
-                        <img
-                        class="w-auto h-85 sm:h-60 object-cover"
-                        src=https://www.livehindustan.com/lh-img/uploadimage/library/2020/10/29/16_9/16_9_4/default-image256x144.jpg
-                        alt="News Image"
-                        />
-                    <!-- Scrollable content -->
-                    <div class="p-4 flex-1 overflow-y-auto">
-                        <h2 class="text-3xl sm:text-3xl mt-4 md:text-2xl font-semibold text-gray-800 mb-2 leading-snug">
-                        ट्रैक्टर व बाइक की ठोकर से पांच लोग घायल, महिला रेफर    
-                        </h2>
-                        <p class="text-gray-600 mt-3 text-xl sm:text-base">
-                        झंझारपुर में अलग-अलग सड़क दुर्घटनाओं में पांच लोग घायल हुए हैं। सभी घायलों को अनुमंडलीय अस्पताल में भर्ती कराया गया है। एक महिला की हालत गंभीर है और उसे मधुबनी सदर अस्पताल रेफर किया गया है। अन्य...    
-                        </p>
-                        <span class="bg-gray-100 text-gray-800 text-xs font-medium me-2 px-2.5 py-0.5 rounded-full dark:bg-gray-700 dark:text-gray-300">और पढ़े..</span>
-                        <p class="text-xs text-gray-400 mt-2 mb-4">undefined</p>
-                    </div>
-
-                </div>
-            </div>
-        
-          <div class="swiper-slide w-full h-full px-4 py-2 box-border flex items-center justify-center">
-                <div class="w-full max-w-md flex flex-col rounded-2xl overflow-hidden shadow-lg bg-white border border-gray-200 flex-1">
-                    <!-- Image -->
-                        <img
-                        class="w-auto h-85 sm:h-60 object-cover"
-                        src=https://www.livehindustan.com/lh-img/smart/img/2025/05/25/256x144/25_MAY_MADHU_2113044_1748198987152.JPG
-                        alt="News Image"
-                        />
-                    <!-- Scrollable content -->
-                    <div class="p-4 flex-1 overflow-y-auto">
-                        <h2 class="text-3xl sm:text-3xl mt-4 md:text-2xl font-semibold text-gray-800 mb-2 leading-snug">
-                        हाइवा ने ट्रांसफॉर्मर में मारी टक्कर नौ घंटे तक बिजली आपूर्ति बाधित    
-                        </h2>
-                        <p class="text-gray-600 mt-3 text-xl sm:text-base">
-                        रांटी चौक के पास रविवार को एक हाईवा ने ट्रांसफार्मर वाले पोल में टक्कर मारी, जिससे पोल गिर गया और बिजली कट गई। नौ घंटे तक कई मोहल्लों की बिजली बाधित रही, जिससे लोगों को गर्मी में कठिनाइयों का सामना...    
-                        </p>
-                        <span class="bg-gray-100 text-gray-800 text-xs font-medium me-2 px-2.5 py-0.5 rounded-full dark:bg-gray-700 dark:text-gray-300">और पढ़े..</span>
-                        <p class="text-xs text-gray-400 mt-2 mb-4">undefined</p>
-                    </div>
-
-                </div>
-            </div>
-        
-          <div class="swiper-slide w-full h-full px-4 py-2 box-border flex items-center justify-center">
-                <div class="w-full max-w-md flex flex-col rounded-2xl overflow-hidden shadow-lg bg-white border border-gray-200 flex-1">
-                    <!-- Image -->
-                        <img
-                        class="w-auto h-85 sm:h-60 object-cover"
-                        src=https://www.livehindustan.com/lh-img/uploadimage/library/2020/10/29/16_9/16_9_4/default-image256x144.jpg
-                        alt="News Image"
-                        />
-                    <!-- Scrollable content -->
-                    <div class="p-4 flex-1 overflow-y-auto">
-                        <h2 class="text-3xl sm:text-3xl mt-4 md:text-2xl font-semibold text-gray-800 mb-2 leading-snug">
-                        भेजा चौक पर युवक से मारपीट    
-                        </h2>
-                        <p class="text-gray-600 mt-3 text-xl sm:text-base">
-                        मधेपुर के भेजा थाने के बजरंगबली स्थान चौक पर अनमोल यादव (36) को कुछ लोगों ने मारपीट कर गंभीर रूप से जख्मी कर दिया। यह घटना उस समय हुई जब वह सब्जी खरीदने जा रहा था। पीड़ित ने बाइक हटाने के लिए कहा,...    
-                        </p>
-                        <span class="bg-gray-100 text-gray-800 text-xs font-medium me-2 px-2.5 py-0.5 rounded-full dark:bg-gray-700 dark:text-gray-300">और पढ़े..</span>
-                        <p class="text-xs text-gray-400 mt-2 mb-4">undefined</p>
-                    </div>
-
-                </div>
-            </div>
-        
-          <div class="swiper-slide w-full h-full px-4 py-2 box-border flex items-center justify-center">
-                <div class="w-full max-w-md flex flex-col rounded-2xl overflow-hidden shadow-lg bg-white border border-gray-200 flex-1">
-                    <!-- Image -->
-                        <img
-                        class="w-auto h-85 sm:h-60 object-cover"
-                        src=https://www.livehindustan.com/lh-img/uploadimage/library/2020/10/29/16_9/16_9_4/default-image256x144.jpg
-                        alt="News Image"
-                        />
-                    <!-- Scrollable content -->
-                    <div class="p-4 flex-1 overflow-y-auto">
-                        <h2 class="text-3xl sm:text-3xl mt-4 md:text-2xl font-semibold text-gray-800 mb-2 leading-snug">
-                        मिथिला की अस्मिता बचाओ महापंचायत आयोजित हुई    
-                        </h2>
-                        <p class="text-gray-600 mt-3 text-xl sm:text-base">
-                        प्रखंड मुख्यालय स्थित विद्यापति चौक के समीप राधा कृष्ण मंदिर में मिथिला राज्य की मांग और अस्मिता बचाने के लिए महापंचायत आयोजित की गई। वक्ताओं ने विधायक हरिभूषण ठाकुर के विवादास्पद बयान की निंदा की और...    
-                        </p>
-                        <span class="bg-gray-100 text-gray-800 text-xs font-medium me-2 px-2.5 py-0.5 rounded-full dark:bg-gray-700 dark:text-gray-300">और पढ़े..</span>
-                        <p class="text-xs text-gray-400 mt-2 mb-4">undefined</p>
-                    </div>
-
-                </div>
-            </div>
-        
-          <div class="swiper-slide w-full h-full px-4 py-2 box-border flex items-center justify-center">
-                <div class="w-full max-w-md flex flex-col rounded-2xl overflow-hidden shadow-lg bg-white border border-gray-200 flex-1">
-                    <!-- Image -->
-                        <img
-                        class="w-auto h-85 sm:h-60 object-cover"
-                        src=https://www.livehindustan.com/lh-img/uploadimage/library/2020/10/29/16_9/16_9_4/default-image256x144.jpg
-                        alt="News Image"
-                        />
-                    <!-- Scrollable content -->
-                    <div class="p-4 flex-1 overflow-y-auto">
-                        <h2 class="text-3xl sm:text-3xl mt-4 md:text-2xl font-semibold text-gray-800 mb-2 leading-snug">
-                        नये सदर एसडीओ चंदन झा ने किया योगदान    
-                        </h2>
-                        <p class="text-gray-600 mt-3 text-xl sm:text-base">
-                        मधुबनी के नए सदर अनुमंडल पदाधिकारी चंदन कुमार झा ने रविवार को पदभार ग्रहण किया। उन्होंने कहा कि उनकी प्राथमिकता क्षेत्र को समझना, दैनिक कार्यों को सुचारू रूप से संचालित करना और चुनावी कार्यों को...    
-                        </p>
-                        <span class="bg-gray-100 text-gray-800 text-xs font-medium me-2 px-2.5 py-0.5 rounded-full dark:bg-gray-700 dark:text-gray-300">और पढ़े..</span>
-                        <p class="text-xs text-gray-400 mt-2 mb-4">undefined</p>
-                    </div>
-
-                </div>
-            </div>
-        
-          <div class="swiper-slide w-full h-full px-4 py-2 box-border flex items-center justify-center">
-                <div class="w-full max-w-md flex flex-col rounded-2xl overflow-hidden shadow-lg bg-white border border-gray-200 flex-1">
-                    <!-- Image -->
-                        <img
-                        class="w-auto h-85 sm:h-60 object-cover"
-                        src=https://www.livehindustan.com/lh-img/uploadimage/library/2020/10/29/16_9/16_9_4/default-image256x144.jpg
-                        alt="News Image"
-                        />
-                    <!-- Scrollable content -->
-                    <div class="p-4 flex-1 overflow-y-auto">
-                        <h2 class="text-3xl sm:text-3xl mt-4 md:text-2xl font-semibold text-gray-800 mb-2 leading-snug">
-                        नो मेंस लैंड के निकट नहीं हटाया जा रहा अतिक्रमण    
-                        </h2>
-                        <p class="text-gray-600 mt-3 text-xl sm:text-base">
-                        जयनगर में एसडीएम ने सीओ को पत्र लिखकर बेतोनहा गांव में नो मेंस लेंड के निकट केशरे हिन्द की जमीन को अतिक्रमण मुक्त कराने की मांग की है। यह दूसरी बार है जब ऐसा किया गया है। स्थानीय पुलिस और सीओ ने मामले...    
-                        </p>
-                        <span class="bg-gray-100 text-gray-800 text-xs font-medium me-2 px-2.5 py-0.5 rounded-full dark:bg-gray-700 dark:text-gray-300">और पढ़े..</span>
-                        <p class="text-xs text-gray-400 mt-2 mb-4">undefined</p>
-                    </div>
-
-                </div>
-            </div>
-        
-          <div class="swiper-slide w-full h-full px-4 py-2 box-border flex items-center justify-center">
-                <div class="w-full max-w-md flex flex-col rounded-2xl overflow-hidden shadow-lg bg-white border border-gray-200 flex-1">
-                    <!-- Image -->
-                        <img
-                        class="w-auto h-85 sm:h-60 object-cover"
-                        src=https://www.livehindustan.com/lh-img/uploadimage/library/2020/10/29/16_9/16_9_4/default-image256x144.jpg
-                        alt="News Image"
-                        />
-                    <!-- Scrollable content -->
-                    <div class="p-4 flex-1 overflow-y-auto">
-                        <h2 class="text-3xl sm:text-3xl mt-4 md:text-2xl font-semibold text-gray-800 mb-2 leading-snug">
-                        तंबाकू छोड़ने के लिए गांव-शहर चलेगा अभियान, बच्चे होंगे शामिल    
-                        </h2>
-                        <p class="text-gray-600 mt-3 text-xl sm:text-base">
-                        मधुबनी में स्वास्थ्य विभाग ने 31 मई को वश्वि तंबाकू निषेध दिवस के लिए तैयारियां की हैं। इस वर्ष का थीम 'तम्बाकू और निकोटीन उद्योग की रणनीति को उजागर करना' है। कक्षा 6 से 12 के बच्चों को पोस्टर और...    
-                        </p>
-                        <span class="bg-gray-100 text-gray-800 text-xs font-medium me-2 px-2.5 py-0.5 rounded-full dark:bg-gray-700 dark:text-gray-300">और पढ़े..</span>
-                        <p class="text-xs text-gray-400 mt-2 mb-4">undefined</p>
-                    </div>
-
-                </div>
-            </div>
-        
-          <div class="swiper-slide w-full h-full px-4 py-2 box-border flex items-center justify-center">
-                <div class="w-full max-w-md flex flex-col rounded-2xl overflow-hidden shadow-lg bg-white border border-gray-200 flex-1">
-                    <!-- Image -->
-                        <img
-                        class="w-auto h-85 sm:h-60 object-cover"
-                        src=https://www.livehindustan.com/lh-img/smart/img/2025/05/25/256x144/25_MAY_BABUBARHI_3112348_1748197729050.JPG
-                        alt="News Image"
-                        />
-                    <!-- Scrollable content -->
-                    <div class="p-4 flex-1 overflow-y-auto">
-                        <h2 class="text-3xl sm:text-3xl mt-4 md:text-2xl font-semibold text-gray-800 mb-2 leading-snug">
-                        बाजार की सड़कों पर अतिक्रमण से परेशानी    
-                        </h2>
-                        <p class="text-gray-600 mt-3 text-xl sm:text-base">
-                        बाबूबरही के स्थानीय बाजार में रोजाना रोड जाम की समस्या उत्पन्न हो रही है। नाली की ऊंचाई बढ़ने से सड़क जलभराव का शिकार हो गई है, जिससे दुर्घटनाएं हो रही हैं। स्थानीय लोगों और जनप्रतिनिधियों को अतिक्रमण...    
-                        </p>
-                        <span class="bg-gray-100 text-gray-800 text-xs font-medium me-2 px-2.5 py-0.5 rounded-full dark:bg-gray-700 dark:text-gray-300">और पढ़े..</span>
-                        <p class="text-xs text-gray-400 mt-2 mb-4">undefined</p>
-                    </div>
-
-                </div>
-            </div>
-        
-          <div class="swiper-slide w-full h-full px-4 py-2 box-border flex items-center justify-center">
-                <div class="w-full max-w-md flex flex-col rounded-2xl overflow-hidden shadow-lg bg-white border border-gray-200 flex-1">
-                    <!-- Image -->
-                        <img
-                        class="w-auto h-85 sm:h-60 object-cover"
-                        src=https://www.livehindustan.com/lh-img/smart/img/2025/05/25/256x144/25_MAY_PANDAUL-34112242_1748197551235.JPG
-                        alt="News Image"
-                        />
-                    <!-- Scrollable content -->
-                    <div class="p-4 flex-1 overflow-y-auto">
-                        <h2 class="text-3xl sm:text-3xl mt-4 md:text-2xl font-semibold text-gray-800 mb-2 leading-snug">
-                        कोर्ट के आदेश पर पुलिस ने दिलाया दखल-कब्जा    
-                        </h2>
-                        <p class="text-gray-600 mt-3 text-xl sm:text-base">
-                        सकरी बाजार में जिला परिषद द्वारा बनाए गए मार्केट कॉम्प्लेक्स पर दखल कब्जा करने के लिए जिला प्रशासन ने कार्रवाई की। यह मामला फरीदा खातून द्वारा न्यायालय में दायर किए गए दावे से संबंधित था। विवादित भूमि...    
-                        </p>
-                        <span class="bg-gray-100 text-gray-800 text-xs font-medium me-2 px-2.5 py-0.5 rounded-full dark:bg-gray-700 dark:text-gray-300">और पढ़े..</span>
-                        <p class="text-xs text-gray-400 mt-2 mb-4">undefined</p>
-                    </div>
-
-                </div>
-            </div>
-        
-          <div class="swiper-slide w-full h-full px-4 py-2 box-border flex items-center justify-center">
-                <div class="w-full max-w-md flex flex-col rounded-2xl overflow-hidden shadow-lg bg-white border border-gray-200 flex-1">
-                    <!-- Image -->
-                        <img
-                        class="w-auto h-85 sm:h-60 object-cover"
-                        src=https://www.livehindustan.com/lh-img/smart/img/2025/05/25/256x144/25MAYMADHU102112126_1748197364800.JPG
-                        alt="News Image"
-                        />
-                    <!-- Scrollable content -->
-                    <div class="p-4 flex-1 overflow-y-auto">
-                        <h2 class="text-3xl sm:text-3xl mt-4 md:text-2xl font-semibold text-gray-800 mb-2 leading-snug">
-                        अतिपिछड़ा-अनुसूचित संयुक्त मोर्चा की कमेटी गठित    
-                        </h2>
-                        <p class="text-gray-600 mt-3 text-xl sm:text-base">
-                        मधुबनी में अतिपिछड़ा-अनुसूचित जाति संयुक्त मोर्चा की आमसभा में नई कार्यकारिणी का गठन हुआ। अशोक कुमार चौधरी को अध्यक्ष और जटाधर पासवान को कार्यकारी अध्यक्ष बनाया गया। बैठक में सामाजिक सुरक्षा और सरकारी...    
-                        </p>
-                        <span class="bg-gray-100 text-gray-800 text-xs font-medium me-2 px-2.5 py-0.5 rounded-full dark:bg-gray-700 dark:text-gray-300">और पढ़े..</span>
-                        <p class="text-xs text-gray-400 mt-2 mb-4">undefined</p>
-                    </div>
-
-                </div>
-            </div>
-        
-          <div class="swiper-slide w-full h-full px-4 py-2 box-border flex items-center justify-center">
-                <div class="w-full max-w-md flex flex-col rounded-2xl overflow-hidden shadow-lg bg-white border border-gray-200 flex-1">
-                    <!-- Image -->
-                        <img
-                        class="w-auto h-85 sm:h-60 object-cover"
-                        src=https://www.livehindustan.com/lh-img/smart/img/2025/05/25/256x144/25_MAY_MADHU_5111800_1748196765690.JPG
-                        alt="News Image"
-                        />
-                    <!-- Scrollable content -->
-                    <div class="p-4 flex-1 overflow-y-auto">
-                        <h2 class="text-3xl sm:text-3xl mt-4 md:text-2xl font-semibold text-gray-800 mb-2 leading-snug">
-                        कोच इंडिकेटर खराब, स्टेशन पर यात्रियों में मची अफरातफरी    
-                        </h2>
-                        <p class="text-gray-600 mt-3 text-xl sm:text-base">
-                        मधुबनी रेलवे स्टेशन पर रविवार को कोच पोजिशन इंडिकेटर खराब होने से यात्रियों में अफरातफरी मच गई। पवन एक्सप्रेस के लिए आए यात्री अपनी आरक्षित बोगी का पता नहीं लगा पाए और मजबूरन अन्य कोच में चढ़ने लगे।...    
-                        </p>
-                        <span class="bg-gray-100 text-gray-800 text-xs font-medium me-2 px-2.5 py-0.5 rounded-full dark:bg-gray-700 dark:text-gray-300">और पढ़े..</span>
-                        <p class="text-xs text-gray-400 mt-2 mb-4">undefined</p>
-                    </div>
-
-                </div>
-            </div>
-        
-          <div class="swiper-slide w-full h-full px-4 py-2 box-border flex items-center justify-center">
-                <div class="w-full max-w-md flex flex-col rounded-2xl overflow-hidden shadow-lg bg-white border border-gray-200 flex-1">
-                    <!-- Image -->
-                        <img
-                        class="w-auto h-85 sm:h-60 object-cover"
-                        src=https://www.livehindustan.com/lh-img/smart/img/2025/05/25/256x144/25MAYMADHU101080958_1748185778981.JPG
-                        alt="News Image"
-                        />
-                    <!-- Scrollable content -->
-                    <div class="p-4 flex-1 overflow-y-auto">
-                        <h2 class="text-3xl sm:text-3xl mt-4 md:text-2xl font-semibold text-gray-800 mb-2 leading-snug">
-                        रोजगार, विकास व महिला सशक्तीकरण के मुद्दों पर होगा बिहार चुनाव: नित्यानंद    
-                        </h2>
-                        <p class="text-gray-600 mt-3 text-xl sm:text-base">
-                        बिहार में एनडीए गठबंधन विकास, रोजगार, महिलाओं के कल्याण और विरासत को सम्मान देने के मुद्दों के साथ चुनावी मैदान में उतरेगा। केंद्रीय गृह राज्य मंत्री नित्यानंद राय ने कहा कि 2005 के बाद से बिहार में...    
-                        </p>
-                        <span class="bg-gray-100 text-gray-800 text-xs font-medium me-2 px-2.5 py-0.5 rounded-full dark:bg-gray-700 dark:text-gray-300">और पढ़े..</span>
-                        <p class="text-xs text-gray-400 mt-2 mb-4">undefined</p>
-                    </div>
-
-                </div>
-            </div>
-        
-          <div class="swiper-slide w-full h-full px-4 py-2 box-border flex items-center justify-center">
-                <div class="w-full max-w-md flex flex-col rounded-2xl overflow-hidden shadow-lg bg-white border border-gray-200 flex-1">
-                    <!-- Image -->
-                        <img
-                        class="w-auto h-85 sm:h-60 object-cover"
-                        src=https://www.livehindustan.com/lh-img/smart/img/2025/05/25/256x144/24_MAY_BOLE_MDB_1051658_1748173898302.JPG
-                        alt="News Image"
-                        />
-                    <!-- Scrollable content -->
-                    <div class="p-4 flex-1 overflow-y-auto">
-                        <h2 class="text-3xl sm:text-3xl mt-4 md:text-2xl font-semibold text-gray-800 mb-2 leading-snug">
-                        वर्षों से क्षतिग्रस्त सड़कों की मरम्मत नहीं, उपेक्षा का दंश झेल रहा वार्ड-14    
-                        </h2>
-                        <p class="text-gray-600 mt-3 text-xl sm:text-base">
-                        मधुबनी नगर निगम के वार्ड-14 में सड़क और नाला निर्माण की अनदेखी के कारण नागरिकों को गंभीर समस्याओं का सामना करना पड़ रहा है। खासकर गोशाला चौक क्षेत्र में जलजमाव और खराब सड़क से यातायात प्रभावित हो रहा है।...    
-                        </p>
-                        <span class="bg-gray-100 text-gray-800 text-xs font-medium me-2 px-2.5 py-0.5 rounded-full dark:bg-gray-700 dark:text-gray-300">और पढ़े..</span>
-                        <p class="text-xs text-gray-400 mt-2 mb-4">undefined</p>
-                    </div>
-
-                </div>
-            </div>
-        
-          <div class="swiper-slide w-full h-full px-4 py-2 box-border flex items-center justify-center">
-                <div class="w-full max-w-md flex flex-col rounded-2xl overflow-hidden shadow-lg bg-white border border-gray-200 flex-1">
-                    <!-- Image -->
-                        <img
-                        class="w-auto h-85 sm:h-60 object-cover"
-                        src=https://www.livehindustan.com/lh-img/uploadimage/library/2020/10/29/16_9/16_9_4/default-image256x144.jpg
-                        alt="News Image"
-                        />
-                    <!-- Scrollable content -->
-                    <div class="p-4 flex-1 overflow-y-auto">
-                        <h2 class="text-3xl sm:text-3xl mt-4 md:text-2xl font-semibold text-gray-800 mb-2 leading-snug">
-                        जिले के 23 सरकारी व 24 निजी अस्पतालों में करा सकेंगे इलाज    
-                        </h2>
-                        <p class="text-gray-600 mt-3 text-xl sm:text-base">
-                        मधुबनी के डीएम अरविन्द कुमार वर्मा ने 26 से 28 मई के बीच आयुष्मान कार्ड बनाने के लिए जिले के निवासियों से अपील की। इस योजना के तहत लाभार्थियों को सालाना 5 लाख रुपए तक का निशुल्क उपचार मिलेगा। विशेष...    
-                        </p>
-                        <span class="bg-gray-100 text-gray-800 text-xs font-medium me-2 px-2.5 py-0.5 rounded-full dark:bg-gray-700 dark:text-gray-300">और पढ़े..</span>
-                        <p class="text-xs text-gray-400 mt-2 mb-4">undefined</p>
-                    </div>
-
-                </div>
-            </div>
-        
-          <div class="swiper-slide w-full h-full px-4 py-2 box-border flex items-center justify-center">
-                <div class="w-full max-w-md flex flex-col rounded-2xl overflow-hidden shadow-lg bg-white border border-gray-200 flex-1">
-                    <!-- Image -->
-                        <img
-                        class="w-auto h-85 sm:h-60 object-cover"
-                        src=https://www.livehindustan.com/lh-img/uploadimage/library/2020/10/29/16_9/16_9_4/default-image256x144.jpg
-                        alt="News Image"
-                        />
-                    <!-- Scrollable content -->
-                    <div class="p-4 flex-1 overflow-y-auto">
-                        <h2 class="text-3xl sm:text-3xl mt-4 md:text-2xl font-semibold text-gray-800 mb-2 leading-snug">
-                        पूरी पारदर्शिता के साथ करें पोषाहार का वितरण: डीएम    
-                        </h2>
-                        <p class="text-gray-600 mt-3 text-xl sm:text-base">
-                        मधुबनी में डीएम की अध्यक्षता में बाल विकास परियोजना पदाधिकारियों की बैठक हुई। डीएम ने आंगनबाड़ी केंद्रों के बच्चों की ऊंचाई और वजन हर महीने रिकॉर्ड करने, पोषाहार वितरण में पारदर्शिता, और शौचालय तथा...    
-                        </p>
-                        <span class="bg-gray-100 text-gray-800 text-xs font-medium me-2 px-2.5 py-0.5 rounded-full dark:bg-gray-700 dark:text-gray-300">और पढ़े..</span>
-                        <p class="text-xs text-gray-400 mt-2 mb-4">undefined</p>
-                    </div>
-
-                </div>
-            </div>
-        
-          <div class="swiper-slide w-full h-full px-4 py-2 box-border flex items-center justify-center">
-                <div class="w-full max-w-md flex flex-col rounded-2xl overflow-hidden shadow-lg bg-white border border-gray-200 flex-1">
-                    <!-- Image -->
-                        <img
-                        class="w-auto h-85 sm:h-60 object-cover"
-                        src=https://www.livehindustan.com/lh-img/smart/img/2025/05/24/256x144/24_MAY_MADHU_5115206_1748118707809.JPG
-                        alt="News Image"
-                        />
-                    <!-- Scrollable content -->
-                    <div class="p-4 flex-1 overflow-y-auto">
-                        <h2 class="text-3xl sm:text-3xl mt-4 md:text-2xl font-semibold text-gray-800 mb-2 leading-snug">
-                        फर्जी नर्सिंग होम व अल्ट्रासाउंड  सेंटरों का लगातार करें निरीक्षण    
-                        </h2>
-                        <p class="text-gray-600 mt-3 text-xl sm:text-base">
-                        मधुबनी में डीएम अरविन्द कुमार वर्मा की अध्यक्षता में स्वास्थ्य विभाग की मासिक समीक्षात्मक बैठक हुई। डीएम ने अवैध नर्सिंग होम और अल्ट्रासाउंड केंद्रों की जांच करने के निर्देश दिए। साथ ही, दवा की...    
-                        </p>
-                        <span class="bg-gray-100 text-gray-800 text-xs font-medium me-2 px-2.5 py-0.5 rounded-full dark:bg-gray-700 dark:text-gray-300">और पढ़े..</span>
-                        <p class="text-xs text-gray-400 mt-2 mb-4">undefined</p>
-                    </div>
-
-                </div>
-            </div>
-        
-          <div class="swiper-slide w-full h-full px-4 py-2 box-border flex items-center justify-center">
-                <div class="w-full max-w-md flex flex-col rounded-2xl overflow-hidden shadow-lg bg-white border border-gray-200 flex-1">
-                    <!-- Image -->
-                        <img
-                        class="w-auto h-85 sm:h-60 object-cover"
-                        src=https://www.livehindustan.com/lh-img/uploadimage/library/2020/10/29/16_9/16_9_4/default-image256x144.jpg
-                        alt="News Image"
-                        />
-                    <!-- Scrollable content -->
-                    <div class="p-4 flex-1 overflow-y-auto">
-                        <h2 class="text-3xl sm:text-3xl mt-4 md:text-2xl font-semibold text-gray-800 mb-2 leading-snug">
-                        लेखा सहायक की अंतिम मेधा सूची पर जताई आपत्ति    
-                        </h2>
-                        <p class="text-gray-600 mt-3 text-xl sm:text-base">
-                        मधुबनी में महिला एवं बाल विकास निगम के अंतर्गत एकल पद लेखा सहायक के अंतिम मेधा सूची में त्रुटियों को लेकर संजय कुमार यादव ने शिकायत की है। उन्होंने डीएम, आईसीडीएस के डीपीओ और अन्य अधिकारियों को इस...    
-                        </p>
-                        <span class="bg-gray-100 text-gray-800 text-xs font-medium me-2 px-2.5 py-0.5 rounded-full dark:bg-gray-700 dark:text-gray-300">और पढ़े..</span>
-                        <p class="text-xs text-gray-400 mt-2 mb-4">undefined</p>
-                    </div>
-
-                </div>
-            </div>
-        
-          <div class="swiper-slide w-full h-full px-4 py-2 box-border flex items-center justify-center">
-                <div class="w-full max-w-md flex flex-col rounded-2xl overflow-hidden shadow-lg bg-white border border-gray-200 flex-1">
-                    <!-- Image -->
-                        <img
-                        class="w-auto h-85 sm:h-60 object-cover"
-                        src=https://www.livehindustan.com/lh-img/uploadimage/library/2020/10/29/16_9/16_9_4/default-image256x144.jpg
-                        alt="News Image"
-                        />
-                    <!-- Scrollable content -->
-                    <div class="p-4 flex-1 overflow-y-auto">
-                        <h2 class="text-3xl sm:text-3xl mt-4 md:text-2xl font-semibold text-gray-800 mb-2 leading-snug">
-                        आज शहर में बाधित रहेगी कई फीडरों की बिजली    
-                        </h2>
-                        <p class="text-gray-600 mt-3 text-xl sm:text-base">
-                        मधुबनी में 25 मई को सुबह 8 से 2 बजे तक 11 केवी मंगरौनी एवं न्यू फीडर की बिजली बाधित रहेगी। नगर निगम के पास तार बदलने का काम होगा। वहीं, वाटसन स्कूल के पास ट्रांसफार्मर लगाने के लिए सुबह 9 से 11.30 बजे...    
-                        </p>
-                        <span class="bg-gray-100 text-gray-800 text-xs font-medium me-2 px-2.5 py-0.5 rounded-full dark:bg-gray-700 dark:text-gray-300">और पढ़े..</span>
-                        <p class="text-xs text-gray-400 mt-2 mb-4">undefined</p>
-                    </div>
-
-                </div>
-            </div>
-        
-          <div class="swiper-slide w-full h-full px-4 py-2 box-border flex items-center justify-center">
-                <div class="w-full max-w-md flex flex-col rounded-2xl overflow-hidden shadow-lg bg-white border border-gray-200 flex-1">
-                    <!-- Image -->
-                        <img
-                        class="w-auto h-85 sm:h-60 object-cover"
-                        src=https://www.livehindustan.com/lh-img/uploadimage/library/2020/10/29/16_9/16_9_4/default-image256x144.jpg
-                        alt="News Image"
-                        />
-                    <!-- Scrollable content -->
-                    <div class="p-4 flex-1 overflow-y-auto">
-                        <h2 class="text-3xl sm:text-3xl mt-4 md:text-2xl font-semibold text-gray-800 mb-2 leading-snug">
-                        हाइकोर्ट के आदेश पर भी भूमि पर कब्जा नहीं मिला    
-                        </h2>
-                        <p class="text-gray-600 mt-3 text-xl sm:text-base">
-                        मधुबनी में हाइकोर्ट के आदेश के बावजूद भू-हदबंदी से मिली जमीन पर कब्जा नहीं मिल सका। डीएम ने सीओ को अवैध अतिक्रमण हटाने के लिए निर्देश दिया था, लेकिन कार्रवाई नहीं हुई। पीड़ित लक्ष्मी नारायण सिंह ने...    
-                        </p>
-                        <span class="bg-gray-100 text-gray-800 text-xs font-medium me-2 px-2.5 py-0.5 rounded-full dark:bg-gray-700 dark:text-gray-300">और पढ़े..</span>
-                        <p class="text-xs text-gray-400 mt-2 mb-4">undefined</p>
-                    </div>
-
-                </div>
-            </div>
-        
-          <div class="swiper-slide w-full h-full px-4 py-2 box-border flex items-center justify-center">
-                <div class="w-full max-w-md flex flex-col rounded-2xl overflow-hidden shadow-lg bg-white border border-gray-200 flex-1">
-                    <!-- Image -->
-                        <img
-                        class="w-auto h-85 sm:h-60 object-cover"
-                        src=https://www.livehindustan.com/lh-img/uploadimage/library/2020/10/29/16_9/16_9_4/default-image256x144.jpg
-                        alt="News Image"
-                        />
-                    <!-- Scrollable content -->
-                    <div class="p-4 flex-1 overflow-y-auto">
-                        <h2 class="text-3xl sm:text-3xl mt-4 md:text-2xl font-semibold text-gray-800 mb-2 leading-snug">
-                        मशाल प्रतियोगिता में शिक्षक ने की हाथापायी    
-                        </h2>
-                        <p class="text-gray-600 mt-3 text-xl sm:text-base">
-                        लखनौर में दीप हाई स्कूल पर आयोजित मशाल प्रतियोगिता में शिक्षक अभय शंकर ने बवाल किया। उन्होंने समन्वयक और शिक्षा समिति सदस्य के साथ अभद्र व्यवहार किया। प्रधानाध्यापक ने शिक्षा पदाधिकारी से शिक्षक के...    
-                        </p>
-                        <span class="bg-gray-100 text-gray-800 text-xs font-medium me-2 px-2.5 py-0.5 rounded-full dark:bg-gray-700 dark:text-gray-300">और पढ़े..</span>
-                        <p class="text-xs text-gray-400 mt-2 mb-4">undefined</p>
-                    </div>
-
-                </div>
-            </div>
-        
-          <div class="swiper-slide w-full h-full px-4 py-2 box-border flex items-center justify-center">
-                <div class="w-full max-w-md flex flex-col rounded-2xl overflow-hidden shadow-lg bg-white border border-gray-200 flex-1">
-                    <!-- Image -->
-                        <img
-                        class="w-auto h-85 sm:h-60 object-cover"
-                        src=https://www.livehindustan.com/lh-img/uploadimage/library/2020/10/29/16_9/16_9_4/default-image256x144.jpg
-                        alt="News Image"
-                        />
-                    <!-- Scrollable content -->
-                    <div class="p-4 flex-1 overflow-y-auto">
-                        <h2 class="text-3xl sm:text-3xl mt-4 md:text-2xl font-semibold text-gray-800 mb-2 leading-snug">
-                        नशे में शोर करते नरेंद्रपुर का युवक धराया    
-                        </h2>
-                        <p class="text-gray-600 mt-3 text-xl sm:text-base">
-                        लौकही थाना पुलिस ने शराब के नशे में शोर मचाने वाले पियक्कड़ रोहित मंडल को पकड़ा। उसकी पहचान नरेन्द्रपुर गांव के निवासी के रूप में हुई है। थानाध्यक्ष रौशन कुमार ने बताया कि इस मामले में सनहा दर्ज कर...    
-                        </p>
-                        <span class="bg-gray-100 text-gray-800 text-xs font-medium me-2 px-2.5 py-0.5 rounded-full dark:bg-gray-700 dark:text-gray-300">और पढ़े..</span>
-                        <p class="text-xs text-gray-400 mt-2 mb-4">undefined</p>
-                    </div>
-
-                </div>
-            </div>
-        
-          <div class="swiper-slide w-full h-full px-4 py-2 box-border flex items-center justify-center">
-                <div class="w-full max-w-md flex flex-col rounded-2xl overflow-hidden shadow-lg bg-white border border-gray-200 flex-1">
-                    <!-- Image -->
-                        <img
-                        class="w-auto h-85 sm:h-60 object-cover"
-                        src=https://www.livehindustan.com/lh-img/smart/img/2025/05/24/256x144/HARLAKHI_262113611_1748115942126.JPG
-                        alt="News Image"
-                        />
-                    <!-- Scrollable content -->
-                    <div class="p-4 flex-1 overflow-y-auto">
-                        <h2 class="text-3xl sm:text-3xl mt-4 md:text-2xl font-semibold text-gray-800 mb-2 leading-snug">
-                        गांजा के साथ नेपाली धंधेबाज धराया    
-                        </h2>
-                        <p class="text-gray-600 mt-3 text-xl sm:text-base">
-                        हरलाखी में, एसएसबी के जवानों ने भारत-नेपाल सीमा पर 900 ग्राम गांजा के साथ एक नेपाली धंधेबाज को गिरफ्तार किया। यह कार्रवाई बॉर्डर पीलर संख्या 280/32 के निकट की गई। गिरफ्तार व्यक्ति की पहचान राम दुलार...    
-                        </p>
-                        <span class="bg-gray-100 text-gray-800 text-xs font-medium me-2 px-2.5 py-0.5 rounded-full dark:bg-gray-700 dark:text-gray-300">और पढ़े..</span>
-                        <p class="text-xs text-gray-400 mt-2 mb-4">undefined</p>
-                    </div>
-
-                </div>
-            </div>
-        
-          <div class="swiper-slide w-full h-full px-4 py-2 box-border flex items-center justify-center">
-                <div class="w-full max-w-md flex flex-col rounded-2xl overflow-hidden shadow-lg bg-white border border-gray-200 flex-1">
-                    <!-- Image -->
-                        <img
-                        class="w-auto h-85 sm:h-60 object-cover"
-                        src=https://www.livehindustan.com/lh-img/smart/img/2025/05/24/256x144/24_MAY_2025_MADHEPUR_5113453_1748115824551.JPG
-                        alt="News Image"
-                        />
-                    <!-- Scrollable content -->
-                    <div class="p-4 flex-1 overflow-y-auto">
-                        <h2 class="text-3xl sm:text-3xl mt-4 md:text-2xl font-semibold text-gray-800 mb-2 leading-snug">
-                        बाइक लूट व आर्म्स एक्ट का अप्राथमिक आरोपित गिरफ्तार    
-                        </h2>
-                        <p class="text-gray-600 mt-3 text-xl sm:text-base">
-                        मधेपुर के भेजा थाने की पुलिस ने बाइक और मोबाइल लूट मामले में 38 वर्षीय रंजीत यादव को गिरफ्तार किया। लूटे गए मोबाइल को तकनीकी अनुसंधान के माध्यम से बरामद किया गया। यह मामला 3 मार्च 2025 को करहारा और...    
-                        </p>
-                        <span class="bg-gray-100 text-gray-800 text-xs font-medium me-2 px-2.5 py-0.5 rounded-full dark:bg-gray-700 dark:text-gray-300">और पढ़े..</span>
-                        <p class="text-xs text-gray-400 mt-2 mb-4">undefined</p>
-                    </div>
-
-                </div>
-            </div>
-        
-          <div class="swiper-slide w-full h-full px-4 py-2 box-border flex items-center justify-center">
-                <div class="w-full max-w-md flex flex-col rounded-2xl overflow-hidden shadow-lg bg-white border border-gray-200 flex-1">
-                    <!-- Image -->
-                        <img
-                        class="w-auto h-85 sm:h-60 object-cover"
-                        src=https://www.livehindustan.com/lh-img/smart/img/2025/05/24/256x144/FOTO-24-MAY-BPT-364113231_1748115464200.JPG
-                        alt="News Image"
-                        />
-                    <!-- Scrollable content -->
-                    <div class="p-4 flex-1 overflow-y-auto">
-                        <h2 class="text-3xl sm:text-3xl mt-4 md:text-2xl font-semibold text-gray-800 mb-2 leading-snug">
-                        अरेर : चार घरों में लाखों की चोरी    
-                        </h2>
-                        <p class="text-gray-600 mt-3 text-xl sm:text-base">
-                        बेनीपट्टी में अरेर थाना के कोनमा टोल में शुक्रवार रात चोरों ने चार घरों में चोरी की। चोरों ने दो लाख रुपये मूल्य की आभूषण, नगद और कपड़े चुराए। पीड़ितों ने पुलिस को सूचना दी और थानाध्यक्ष ने मामले की...    
-                        </p>
-                        <span class="bg-gray-100 text-gray-800 text-xs font-medium me-2 px-2.5 py-0.5 rounded-full dark:bg-gray-700 dark:text-gray-300">और पढ़े..</span>
-                        <p class="text-xs text-gray-400 mt-2 mb-4">undefined</p>
-                    </div>
-
-                </div>
-            </div>
-        
-          <div class="swiper-slide w-full h-full px-4 py-2 box-border flex items-center justify-center">
-                <div class="w-full max-w-md flex flex-col rounded-2xl overflow-hidden shadow-lg bg-white border border-gray-200 flex-1">
-                    <!-- Image -->
-                        <img
-                        class="w-auto h-85 sm:h-60 object-cover"
-                        src=https://www.livehindustan.com/lh-img/smart/img/2025/05/24/256x144/24_MAY_JAYNAGAR_2110903_1748112405410.JPG
-                        alt="News Image"
-                        />
-                    <!-- Scrollable content -->
-                    <div class="p-4 flex-1 overflow-y-auto">
-                        <h2 class="text-3xl sm:text-3xl mt-4 md:text-2xl font-semibold text-gray-800 mb-2 leading-snug">
-                        जमीन के खेल में निगरानी के निशाने पर कई वरीय अधिकारी    
-                        </h2>
-                        <p class="text-gray-600 mt-3 text-xl sm:text-base">
-                        जयनगर अंचल के सीआई अजय कुमार मंडल को विजिलेंस ने 3 लाख रुपये की घूस लेते रंगेहाथ पकड़ा। इस घटना के बाद से अंचल कार्यालय में हड़कंप मच गया है। कई वरिष्ठ अधिकारियों की संलिप्तता की आशंका है। इंद्रजीत...    
-                        </p>
-                        <span class="bg-gray-100 text-gray-800 text-xs font-medium me-2 px-2.5 py-0.5 rounded-full dark:bg-gray-700 dark:text-gray-300">और पढ़े..</span>
-                        <p class="text-xs text-gray-400 mt-2 mb-4">undefined</p>
-                    </div>
-
-                </div>
-            </div>
-        
-          <div class="swiper-slide w-full h-full px-4 py-2 box-border flex items-center justify-center">
-                <div class="w-full max-w-md flex flex-col rounded-2xl overflow-hidden shadow-lg bg-white border border-gray-200 flex-1">
-                    <!-- Image -->
-                        <img
-                        class="w-auto h-85 sm:h-60 object-cover"
-                        src=https://www.livehindustan.com/lh-img/uploadimage/library/2020/10/29/16_9/16_9_4/default-image256x144.jpg
-                        alt="News Image"
-                        />
-                    <!-- Scrollable content -->
-                    <div class="p-4 flex-1 overflow-y-auto">
-                        <h2 class="text-3xl sm:text-3xl mt-4 md:text-2xl font-semibold text-gray-800 mb-2 leading-snug">
-                        खेल से बच्चों का शारीरिक व मानसिक विकास होता है    
-                        </h2>
-                        <p class="text-gray-600 mt-3 text-xl sm:text-base">
-                        बासोपट्टी के कौआहा उच्च विद्यालय में तीन दिवसीय बिहार राज्य खेल प्रतियोगिता का आयोजन किया गया। इसमें अंडर 14 और अंडर 16 के छात्रों ने विभिन्न खेलों में भाग लिया। कार्यक्रम का उद्घाटन संचालक प्रतिभा...    
-                        </p>
-                        <span class="bg-gray-100 text-gray-800 text-xs font-medium me-2 px-2.5 py-0.5 rounded-full dark:bg-gray-700 dark:text-gray-300">और पढ़े..</span>
-                        <p class="text-xs text-gray-400 mt-2 mb-4">undefined</p>
-                    </div>
-
-                </div>
-            </div>
-        
-          <div class="swiper-slide w-full h-full px-4 py-2 box-border flex items-center justify-center">
-                <div class="w-full max-w-md flex flex-col rounded-2xl overflow-hidden shadow-lg bg-white border border-gray-200 flex-1">
-                    <!-- Image -->
-                        <img
-                        class="w-auto h-85 sm:h-60 object-cover"
-                        src=https://www.livehindustan.com/lh-img/uploadimage/library/2020/10/29/16_9/16_9_4/default-image256x144.jpg
-                        alt="News Image"
-                        />
-                    <!-- Scrollable content -->
-                    <div class="p-4 flex-1 overflow-y-auto">
-                        <h2 class="text-3xl sm:text-3xl mt-4 md:text-2xl font-semibold text-gray-800 mb-2 leading-snug">
-                        प्रतियोगिता में छात्रों ने दिखाये दमखम    
-                        </h2>
-                        <p class="text-gray-600 mt-3 text-xl sm:text-base">
-                        लौकही में शनिवार को संकुल संसाधन केन्द्रों पर मशाल कार्यक्रम के तहत खेल कूद प्रतियोगिता का आयोजन किया गया। इसमें छात्र-छात्राओं ने लम्बी कूद, दौड़, कबड्डी, साइकलिंग जैसी प्रतियोगिताओं में भाग लिया। सफल...    
-                        </p>
-                        <span class="bg-gray-100 text-gray-800 text-xs font-medium me-2 px-2.5 py-0.5 rounded-full dark:bg-gray-700 dark:text-gray-300">और पढ़े..</span>
-                        <p class="text-xs text-gray-400 mt-2 mb-4">undefined</p>
-                    </div>
-
-                </div>
-            </div>
-        
-          <div class="swiper-slide w-full h-full px-4 py-2 box-border flex items-center justify-center">
-                <div class="w-full max-w-md flex flex-col rounded-2xl overflow-hidden shadow-lg bg-white border border-gray-200 flex-1">
-                    <!-- Image -->
-                        <img
-                        class="w-auto h-85 sm:h-60 object-cover"
-                        src=https://www.livehindustan.com/lh-img/smart/img/2025/05/24/256x144/24MAYMADHWAPUR_2_104235_1748108742883.JPG
-                        alt="News Image"
-                        />
-                    <!-- Scrollable content -->
-                    <div class="p-4 flex-1 overflow-y-auto">
-                        <h2 class="text-3xl sm:text-3xl mt-4 md:text-2xl font-semibold text-gray-800 mb-2 leading-snug">
-                        दिल्ली में सम्मानित हुआ पिरोखर का छात्र    
-                        </h2>
-                        <p class="text-gray-600 mt-3 text-xl sm:text-base">
-                        मधवापुर के पिरोखर गांव के छात्र मयंक शशि को दिल्ली में उनकी सफलता के लिए सम्मानित किया गया। यह कार्यक्रम 23 मई को नेहरू पैलेस में आयोजित हुआ, जहां पूर्व मंत्री और अन्य गणमान्य व्यक्तियों की मौजूदगी...    
-                        </p>
-                        <span class="bg-gray-100 text-gray-800 text-xs font-medium me-2 px-2.5 py-0.5 rounded-full dark:bg-gray-700 dark:text-gray-300">और पढ़े..</span>
-                        <p class="text-xs text-gray-400 mt-2 mb-4">undefined</p>
-                    </div>
-
-                </div>
-            </div>
-        
-          <div class="swiper-slide w-full h-full px-4 py-2 box-border flex items-center justify-center">
-                <div class="w-full max-w-md flex flex-col rounded-2xl overflow-hidden shadow-lg bg-white border border-gray-200 flex-1">
-                    <!-- Image -->
-                        <img
-                        class="w-auto h-85 sm:h-60 object-cover"
-                        src=https://www.livehindustan.com/lh-img/smart/img/2025/05/24/256x144/24_MAY_MADHU_3104126_1748108629493.JPG
-                        alt="News Image"
-                        />
-                    <!-- Scrollable content -->
-                    <div class="p-4 flex-1 overflow-y-auto">
-                        <h2 class="text-3xl sm:text-3xl mt-4 md:text-2xl font-semibold text-gray-800 mb-2 leading-snug">
-                        शिक्षिका विद्या मिश्रा की विदाई    
-                        </h2>
-                        <p class="text-gray-600 mt-3 text-xl sm:text-base">
-                        मधुबनी के राजकीयकृत मध्य विद्यालय सप्ता शहरी में शनिवार को प्रधानाध्यापक हेमंत कुमार की अध्यक्षता में शिक्षिका विद्या मिश्रा की विदाई कार्यक्रम आयोजित किया गया। कार्यक्रम में विद्या मिश्रा को सम्मानित...    
-                        </p>
-                        <span class="bg-gray-100 text-gray-800 text-xs font-medium me-2 px-2.5 py-0.5 rounded-full dark:bg-gray-700 dark:text-gray-300">और पढ़े..</span>
-                        <p class="text-xs text-gray-400 mt-2 mb-4">undefined</p>
-                    </div>
-
-                </div>
-            </div>
-        
-          <div class="swiper-slide w-full h-full px-4 py-2 box-border flex items-center justify-center">
-                <div class="w-full max-w-md flex flex-col rounded-2xl overflow-hidden shadow-lg bg-white border border-gray-200 flex-1">
-                    <!-- Image -->
-                        <img
-                        class="w-auto h-85 sm:h-60 object-cover"
-                        src=https://www.livehindustan.com/lh-img/smart/img/2025/05/24/256x144/24_MAY_MADHU_1104026_1748108554706.JPG
-                        alt="News Image"
-                        />
-                    <!-- Scrollable content -->
-                    <div class="p-4 flex-1 overflow-y-auto">
-                        <h2 class="text-3xl sm:text-3xl mt-4 md:text-2xl font-semibold text-gray-800 mb-2 leading-snug">
-                        एनसीसी कैडेट्स ने सीखे थल सेना में जाने के गुर    
-                        </h2>
-                        <p class="text-gray-600 mt-3 text-xl sm:text-base">
-                        मधुबनी में जवाहर नवोदय विद्यालय में 34 बिहार बटालियन एनसीसी द्वारा आयोजित एनुअल ट्रेनिंग कैंप के सातवें दिन कैडेट्स को केंद्रीय थल सेना में शामिल होने का प्रशिक्षण दिया गया। उत्कृष्ट प्रदर्शन करने...    
-                        </p>
-                        <span class="bg-gray-100 text-gray-800 text-xs font-medium me-2 px-2.5 py-0.5 rounded-full dark:bg-gray-700 dark:text-gray-300">और पढ़े..</span>
-                        <p class="text-xs text-gray-400 mt-2 mb-4">undefined</p>
-                    </div>
-
-                </div>
-            </div>
-        
-        </div>
+<body class="h-screen flex flex-col">
+  <header class="h-16 bg-blue-600 text-white flex items-center justify-center">
+    <nav
+      class="bg-white dark:bg-gray-900 fixed w-full z-20 top-0 start-0 border-b border-gray-200 dark:border-gray-600">
+      <div class="max-w-screen-xl flex flex-wrap items-center justify-center mx-auto p-4">
+        <a href="https://flowbite.com/" class="flex items-center space-x-3 rtl:space-x-reverse">
+          <span class="self-center text-2xl font-semibold whitespace-nowrap dark:text-white">Madhubnai News</span>
+        </a>
       </div>
-      </main>
+    </nav>
+  </header>
 
-      <div class="fixed bottom-0 left-0 z-50 w-full h-16 bg-white border-t border-gray-200 dark:bg-gray-700 dark:border-gray-600">
-        <div class="grid h-full max-w-lg grid-cols-4 mx-auto font-medium">
-            <button type="button" class="inline-flex flex-col items-center justify-center px-5 hover:bg-gray-50 dark:hover:bg-gray-800 group">
-                <svg class="w-5 h-5 mb-2 text-gray-500 dark:text-gray-400 group-hover:text-blue-600 dark:group-hover:text-blue-500" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 20 20">
-                    <path d="m19.707 9.293-2-2-7-7a1 1 0 0 0-1.414 0l-7 7-2 2a1 1 0 0 0 1.414 1.414L2 10.414V18a2 2 0 0 0 2 2h3a1 1 0 0 0 1-1v-4a1 1 0 0 1 1-1h2a1 1 0 0 1 1 1v4a1 1 0 0 0 1 1h3a2 2 0 0 0 2-2v-7.586l.293.293a1 1 0 0 0 1.414-1.414Z"/>
-                </svg>
-                <span class="text-sm text-gray-500 dark:text-gray-400 group-hover:text-blue-600 dark:group-hover:text-blue-500">Home</span>
-            </button>
-            <button type="button" class="inline-flex flex-col items-center justify-center px-5 hover:bg-gray-50 dark:hover:bg-gray-800 group">
-                <svg class="w-5 h-5 mb-2 text-gray-500 dark:text-gray-400 group-hover:text-blue-600 dark:group-hover:text-blue-500" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 20 20">
-                    <path d="M11.074 4 8.442.408A.95.95 0 0 0 7.014.254L2.926 4h8.148ZM9 13v-1a4 4 0 0 1 4-4h6V6a1 1 0 0 0-1-1H1a1 1 0 0 0-1 1v13a1 1 0 0 0 1 1h17a1 1 0 0 0 1-1v-2h-6a4 4 0 0 1-4-4Z"/>
-                    <path d="M19 10h-6a2 2 0 0 0-2 2v1a2 2 0 0 0 2 2h6a1 1 0 0 0 1-1v-3a1 1 0 0 0-1-1Zm-4.5 3.5a1 1 0 1 1 0-2 1 1 0 0 1 0 2ZM12.62 4h2.78L12.539.41a1.086 1.086 0 1 0-1.7 1.352L12.62 4Z"/>
-                </svg>
-                <span class="text-sm text-gray-500 dark:text-gray-400 group-hover:text-blue-600 dark:group-hover:text-blue-500">Wallet</span>
-            </button>
-            <button type="button" class="inline-flex flex-col items-center justify-center px-5 hover:bg-gray-50 dark:hover:bg-gray-800 group">
-                <svg class="w-5 h-5 mb-2 text-gray-500 dark:text-gray-400 group-hover:text-blue-600 dark:group-hover:text-blue-500" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 20 20">
-                    <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 12.25V1m0 11.25a2.25 2.25 0 0 0 0 4.5m0-4.5a2.25 2.25 0 0 1 0 4.5M4 19v-2.25m6-13.5V1m0 2.25a2.25 2.25 0 0 0 0 4.5m0-4.5a2.25 2.25 0 0 1 0 4.5M10 19V7.75m6 4.5V1m0 11.25a2.25 2.25 0 1 0 0 4.5 2.25 2.25 0 0 0 0-4.5ZM16 19v-2"/>
-                </svg>
-                <span class="text-sm text-gray-500 dark:text-gray-400 group-hover:text-blue-600 dark:group-hover:text-blue-500">Settings</span>
-            </button>
-            <button type="button" class="inline-flex flex-col items-center justify-center px-5 hover:bg-gray-50 dark:hover:bg-gray-800 group">
-                <svg class="w-5 h-5 mb-2 text-gray-500 dark:text-gray-400 group-hover:text-blue-600 dark:group-hover:text-blue-500" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 20 20">
-                    <path d="M10 0a10 10 0 1 0 10 10A10.011 10.011 0 0 0 10 0Zm0 5a3 3 0 1 1 0 6 3 3 0 0 1 0-6Zm0 13a8.949 8.949 0 0 1-4.951-1.488A3.987 3.987 0 0 1 9 13h2a3.987 3.987 0 0 1 3.951 3.512A8.949 8.949 0 0 1 10 18Z"/>
-                </svg>
-                <span class="text-sm text-gray-500 dark:text-gray-400 group-hover:text-blue-600 dark:group-hover:text-blue-500">Profile</span>
-            </button>
-        </div>
+  <!-- Swiper Slider Container -->
+  <main class="h-full p-4">
+    <div class="swiper-container mx-auto my-8">
+      <div class="swiper-wrapper flex h-[100%] items-center" id="contentContainer">
+
+      </div>
     </div>
-    
-      <!-- Swiper Initialization -->
-      <script>
-        const swiper = new Swiper('.swiper-container', {
-          loop: true,
-          spaceBetween: 0, // No space between slides
-          slidesPerView: 1,  // Show one card per slide
-          pagination: {
-            el: '.swiper-pagination',
-            clickable: true,
-          },
-          direction: 'vertical', // Vertically swipe for full height display
+  </main>
+
+  <div
+    class="fixed bottom-0 left-0 z-50 w-full h-16 bg-white border-t border-gray-200 dark:bg-gray-700 dark:border-gray-600">
+    <div class="grid h-full max-w-lg grid-cols-4 mx-auto font-medium">
+      <button type="button"
+        class="inline-flex flex-col items-center justify-center px-5 hover:bg-gray-50 dark:hover:bg-gray-800 group">
+        <svg class="w-5 h-5 mb-2 text-gray-500 dark:text-gray-400 group-hover:text-blue-600 dark:group-hover:text-blue-500"
+          aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 20 20">
+          <path
+            d="m19.707 9.293-2-2-7-7a1 1 0 0 0-1.414 0l-7 7-2 2a1 1 0 0 0 1.414 1.414L2 10.414V18a2 2 0 0 0 2 2h3a1 1 0 0 0 1-1v-4a1 1 0 0 1 1-1h2a1 1 0 0 1 1 1v4a1 1 0 0 0 1 1h3a2 2 0 0 0 2-2v-7.586l.293.293a1 1 0 0 0 1.414-1.414Z" />
+        </svg>
+        <span
+          class="text-sm text-gray-500 dark:text-gray-400 group-hover:text-blue-600 dark:group-hover:text-blue-500">Home</span>
+      </button>
+      <button type="button"
+        class="inline-flex flex-col items-center justify-center px-5 hover:bg-gray-50 dark:hover:bg-gray-800 group">
+        <svg class="w-5 h-5 mb-2 text-gray-500 dark:text-gray-400 group-hover:text-blue-600 dark:group-hover:text-blue-500"
+          aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 20 20">
+          <path d="M11.074 4 8.442.408A.95.95 0 0 0 7.014.254L2.926 4h8.148ZM9 13v-1a4 4 0 0 1 4-4h6V6a1 1 0 0 0-1-1H1a1 1 0 0 0-1 1v13a1 1 0 0 0 1 1h17a1 1 0 0 0 1-1v-2h-6a4 4 0 0 1-4-4Z" />
+          <path d="M19 10h-6a2 2 0 0 0-2 2v1a2 2 0 0 0 2 2h6a1 1 0 0 0 1-1v-3a1 1 0 0 0-1-1Zm-4.5 3.5a1 1 0 1 1 0-2 1 1 0 0 1 0 2ZM12.62 4h2.78L12.539.41a1.086 1.086 0 1 0-1.7 1.352L12.62 4Z" />
+        </svg>
+        <span
+          class="text-sm text-gray-500 dark:text-gray-400 group-hover:text-blue-600 dark:group-hover:text-blue-500">Wallet</span>
+      </button>
+      <button type="button"
+        class="inline-flex flex-col items-center justify-center px-5 hover:bg-gray-50 dark:hover:bg-gray-800 group">
+        <svg class="w-5 h-5 mb-2 text-gray-500 dark:text-gray-400 group-hover:text-blue-600 dark:group-hover:text-blue-500"
+          aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 20 20">
+          <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+            d="M4 12.25V1m0 11.25a2.25 2.25 0 0 0 0 4.5m0-4.5a2.25 2.25 0 0 1 0 4.5M4 19v-2.25m6-13.5V1m0 2.25a2.25 2.25 0 0 0 0 4.5m0-4.5a2.25 2.25 0 0 1 0 4.5M10 19V7.75m6 4.5V1m0 11.25a2.25 2.25 0 1 0 0 4.5 2.25 2.25 0 0 0 0-4.5ZM16 19v-2" />
+        </svg>
+        <span
+          class="text-sm text-gray-500 dark:text-gray-400 group-hover:text-blue-600 dark:group-hover:text-blue-500">Settings</span>
+      </button>
+      <button type="button"
+        class="inline-flex flex-col items-center justify-center px-5 hover:bg-gray-50 dark:hover:bg-gray-800 group">
+        <svg class="w-5 h-5 mb-2 text-gray-500 dark:text-gray-400 group-hover:text-blue-600 dark:group-hover:text-blue-500"
+          aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 20 20">
+          <path
+            d="M10 0a10 10 0 1 0 10 10A10.011 10.011 0 0 0 10 0Zm0 5a3 3 0 1 1 0 6 3 3 0 0 1 0-6Zm0 13a8.949 8.949 0 0 1-4.951-1.488A3.987 3.987 0 0 1 9 13h2a3.987 3.987 0 0 1 3.951 3.512A8.949 8.949 0 0 1 10 18Z" />
+        </svg>
+        <span
+          class="text-sm text-gray-500 dark:text-gray-400 group-hover:text-blue-600 dark:group-hover:text-blue-500">Profile</span>
+      </button>
+    </div>
+  </div>
+
+  <!-- Swiper Initialization -->
+  <script>
+    const swiper = new Swiper('.swiper-container', {
+      loop: true,
+      spaceBetween: 0,
+      // No space between slides
+      slidesPerView: 1,
+      // Show one card per slide
+      pagination: {
+        el: '.swiper-pagination',
+        clickable: true,
+      },
+      direction: 'vertical',
+      // Vertically swipe for full height display
+    });
+
+    // Populate the swiper with news items
+// Wait for DOM to load
+  document.addEventListener('DOMContentLoaded', () => {
+    fetch('http://localhost:3000/api/today/data')
+      .then(response => response.json())
+      .then(data => {
+        // Assuming data is an array of news items
+        const swiperWrapper = document.querySelector('.swiper-wrapper');
+
+        if (!swiperWrapper) return;
+
+        // Clear existing content (if any)
+        swiperWrapper.innerHTML = '';
+
+        // Create swiper slides dynamically
+        data.forEach(item => {
+          const slide = document.createElement('div');
+          slide.className = 'swiper-slide w-full h-full px-4 py-2 box-border flex items-center justify-center';
+
+          slide.innerHTML = `
+            <div class="w-full max-w-md flex flex-col rounded-2xl overflow-hidden shadow-lg bg-white border border-gray-200 flex-1">
+              <img class="w-auto h-85 sm:h-60 object-cover" src="${item.image}" alt="News Image" />
+              <div class="p-4 flex-1 overflow-y-auto">
+                <h2 class="text-3xl sm:text-3xl mt-4 md:text-2xl font-semibold text-gray-800 mb-2 leading-snug">${item.title}</h2>
+                <p class="text-gray-600 mt-3 text-xl sm:text-base">${item.description}</p>
+                <span class="bg-gray-100 text-gray-800 text-xs font-medium me-2 px-2.5 py-0.5 rounded-full dark:bg-gray-700 dark:text-gray-300">और पढ़े..</span>
+                <p class="text-xs text-gray-400 mt-2 mb-4">${new Date(item.createdAt.$date).toLocaleString('hi-IN')}</p>
+              </div>
+            </div>
+          `;
+
+          swiperWrapper.appendChild(slide);
         });
-      </script>
-    </body>
-    </html>
-      
+
+        // After adding slides, update swiper (assuming swiper is initialized already)
+        if (window.swiper) {
+          window.swiper.update();
+        }
+      })
+      .catch(err => {
+        console.error('Failed to load news data:', err);
+      });
+  });
+  </script>
+</body>
+
+</html>
